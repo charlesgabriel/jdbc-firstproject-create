@@ -1,0 +1,19 @@
+#version: '3.8'
+
+services:
+  mysql-curso:
+    image: mysql:8.0
+    container_name: mysql-jdbc
+    environment:
+      MYSQL_USER: developer
+      MYSQL_PASSWORD: 01dev34
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: coursejdbc
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
